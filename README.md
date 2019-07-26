@@ -3,9 +3,9 @@ Training Signal Annealing
 
 This is an example of TSA.
 In the code above, I compare training a simple neural net of binary classification task:
-*Input:
+*Input:*
 [a,b]
-*Output:
+*Output:*
 1 if a>b
 0 if a<b
 
