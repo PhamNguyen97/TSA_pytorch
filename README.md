@@ -4,10 +4,10 @@ Training Signal Annealing
 This is an example of TSA.
 In the code above, I compare training a simple neural net of binary classification task:  
 *Input:*  
-```[a,b]```
+```[a,b]```  
 *Output:*  
-```1 if a>b```
-```0 if a<b```
+```1 if a>b```  
+```0 if a<b```  
   
 ## Training data  
 ```X_train = [11,10],[200,151],[501,400],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[1,10],[9,20],[9,100],[100,101],[1111,1112]]```  
