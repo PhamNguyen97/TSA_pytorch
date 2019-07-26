@@ -47,17 +47,17 @@ class TSA_crossEntropy(object):
 
 
 # Test TSA with crossentropy loss
-loss = TSA_crossEntropy(10000,2,5, 100)
+loss = TSA_crossEntropy(10000,2,5, 5)
 
-inputs = torch.FloatTensor([[11,9],[200,151],[501,400],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[1,10],[9,20],[9,100],[100,101],[1111,1112]])
+inputs = torch.FloatTensor([[11,10],[200,151],[501,400],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[1,10],[9,20],[9,100],[100,101],[1111,1112]])
 weight = torch.FloatTensor([[0,0],[0,0]]).requires_grad_(requires_grad=True)
 bias = torch.FloatTensor([[0,0]]).requires_grad_(requires_grad=True)
+targets = torch.LongTensor([1,1,1,0,0,0,0,0,0,0,0,0,0,0,0])
 
 
 for i in range(10000):
     logits = torch.matmul(inputs, weight)
     logits = logits+bias
-    targets = torch.LongTensor([1,1,1,0,0,0,0,0,0,0,0,0,0,0,0])
     loss_value = loss(logits, targets)
 
     loss_value.backward()
@@ -66,7 +66,7 @@ for i in range(10000):
 
     optimizer.step()
 
-inputs = torch.FloatTensor([[200,151],[501,400],[6,5],[99,95],[100,100000],[99,60]])
+inputs = torch.FloatTensor([[200,151],[501,400],[9,8],[99,95],[100,100000],[99,60]])
 
 logits = torch.matmul(inputs, weight)
 logits = torch.nn.functional.softmax(logits, dim = 1)
@@ -81,15 +81,15 @@ print('output:', logits)
 
 loss = torch.nn.CrossEntropyLoss()
 
-inputs = torch.FloatTensor([[11,9],[200,151],[501,400],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[1,10],[9,20],[9,100],[100,101],[1111,1112]])
+inputs = torch.FloatTensor([[11,10],[200,151],[501,400],[6,7],[7,8],[8,9],[9,10],[10,11],[11,12],[12,13],[1,10],[9,20],[9,100],[100,101],[1111,1112]])
 weight = torch.FloatTensor([[0,0],[0,0]]).requires_grad_(requires_grad=True)
 bias = torch.FloatTensor([[0,0]]).requires_grad_(requires_grad=True)
+targets = torch.LongTensor([1,1,1,0,0,0,0,0,0,0,0,0,0,0,0])
 
 
 for i in range(10000):
     logits = torch.matmul(inputs, weight)
     logits = logits+bias
-    targets = torch.LongTensor([1,1,1,0,0,0,0,0,0,0,0,0,0,0,0])
     loss_value = loss(logits, targets)
 
     loss_value.backward()
@@ -98,8 +98,7 @@ for i in range(10000):
 
     optimizer.step()
 
-inputs = torch.FloatTensor([[200,151],[501,400],[6,5],[99,95],[100,100000],[99,60]])
-
+inputs = torch.FloatTensor([[200,151],[501,400],[9,8],[99,95],[100,100000],[99,60]])
 logits = torch.matmul(inputs, weight)
 logits = torch.nn.functional.softmax(logits, dim = 1)
 out,_ = torch.max(logits, dim =1)
