@@ -27,8 +27,8 @@ In the example, the number of "1"-class samples is much smaller than that of "0"
 The simple test show that, the Net dose not recognize [99,95] input when it is trained in normal way while the same Net (with TSA training) can classify that input.  
 
 ## Conclution  
-The code is an demo of applying TSA into crossEntopyLoss written in Pytorch.  
-TSA make *loss surface* becomes *smoother* which means of *fewer local minimum*, helping the process of training neural net become easier, expecially in case of difficulty in data collection.  
+The code is a demo of applying TSA into crossEntopyLoss written in Pytorch.  
+TSA make *loss surface* becomes *smoother* which means of *fewer local minimums*, helping the process of training neural net become easier, expecially in case of difficulty in data collection.  
 The experiment implies that Neural Net can be trained with *unbalanced* dataset.   
 
 ## Reference  
